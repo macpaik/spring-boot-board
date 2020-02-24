@@ -9,8 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class SpringBootBoardApplication {
 
     public static void main(String[] args) {
-        System.setProperty("spring.devtools.restart.enabled", "false");
-        System.setProperty("spring.devtools.livereload.enabled", "true");
         SpringApplication.run(SpringBootBoardApplication.class, args);
     }
 
