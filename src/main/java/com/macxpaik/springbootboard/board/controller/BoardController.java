@@ -19,12 +19,12 @@ public class BoardController {
         List<BoardDto> boardList = boardService.getBoardList();
 
         model.addAttribute("boardList", boardList);
-        return "/board/list.html";
+        return "board/list.html";
     }
 
     @GetMapping("/post")
     public String write() {
-        return "/board/write.html";
+        return "board/write.html";
     }
 
     @PostMapping("/post")
@@ -39,7 +39,7 @@ public class BoardController {
         BoardDto boardDto = boardService.getPost(no);
 
         model.addAttribute("boardDto", boardDto);
-        return "/board/detail.html";
+        return "board/detail.html";
     }
 
     @GetMapping("/post/edit/{no}")
@@ -47,7 +47,7 @@ public class BoardController {
         BoardDto boardDto = boardService.getPost(no);
 
         model.addAttribute("boardDto", boardDto);
-        return "/board/update.html";
+        return "board/update.html";
     }
 
     @PutMapping("/post/edit/{no}")
