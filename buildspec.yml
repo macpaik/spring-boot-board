@@ -15,4 +15,5 @@ artifacts:
   files:
     - appspec.yml
     - build/libs/*.jar
+    - scripts/**
   discard-paths: yes
