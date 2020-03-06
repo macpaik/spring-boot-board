@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Success</title>
+</head>
+<body>
+<h1>Login Success!!</h1>
+<hr>
+<p>
+    Welcome <span sec:authentication="name"></span>!
+</p>
+<a th:href="@{'/'}">to main page</a>
+<a th:href="@{'/board'}">to board page</a>
+</body>
+</html>
