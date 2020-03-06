@@ -11,11 +11,11 @@
 <p th:text="${boardDto.content}"></p>
 
 <div>
-    <a th:href="@{'/post/edit/' + ${boardDto.id}}">
+    <a th:href="@{'/board/post/edit/' + ${boardDto.id}}">
         <button>edit</button>
     </a>
 
-    <form id="delete-form" th:action="@{'/post/' + ${boardDto.id}}" method="post">
+    <form id="delete-form" th:action="@{'/board/post/' + ${boardDto.id}}" method="post">
         <input type="hidden" name="_method" value="delete"/><!-- form will be mapped by "delete" -->
         <button id="delete-btn">delete</button>
     </form>
