@@ -14,7 +14,7 @@ import java.util.List;
 public class BoardController {
     private BoardService boardService;
 
-    @GetMapping("/")
+    @GetMapping("/board")
     public String list(Model model) {
         List<BoardDto> boardList = boardService.getBoardList();
 
@@ -22,19 +22,19 @@ public class BoardController {
         return "board/list.html";
     }
 
-    @GetMapping("/post")
+    @GetMapping("/board/post")
     public String write() {
         return "board/write.html";
     }
 
-    @PostMapping("/post")
+    @PostMapping("/board/post")
     public String write(BoardDto boardDto) {
         boardService.savePost(boardDto);
 
-        return "redirect:/";
+        return "redirect:/board";
     }
 
-    @GetMapping("/post/{no}")
+    @GetMapping("/board/post/{no}")
     public String detail(@PathVariable("no") Long no, Model model) {
         BoardDto boardDto = boardService.getPost(no);
 
@@ -42,7 +42,7 @@ public class BoardController {
         return "board/detail.html";
     }
 
-    @GetMapping("/post/edit/{no}")
+    @GetMapping("/board/post/edit/{no}")
     public String edit(@PathVariable("no") Long no, Model model) {
         BoardDto boardDto = boardService.getPost(no);
 
@@ -50,17 +50,17 @@ public class BoardController {
         return "board/update.html";
     }
 
-    @PutMapping("/post/edit/{no}")
+    @PutMapping("/board/post/edit/{no}")
     public String update(BoardDto boardDto) {
         boardService.savePost(boardDto);
 
-        return "redirect:/";
+        return "redirect:/board";
     }
 
-    @DeleteMapping("/post/{no}")
+    @DeleteMapping("/board/post/{no}")
     public String delete(@PathVariable("no") Long no, Model model) {
         boardService.deletePost(no);
 
-        return "redirect:/";
+        return "redirect:/board";
     }
 }
