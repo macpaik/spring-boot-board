@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<!-- HEADER -->
-<div th:insert="common/header.html" id="header"></div>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+    <!-- HEADER -->
+        <div th:insert="common/header.html" id="header"></div>
 
-<form th:action="@{'/board/post/edit/' + ${boardDto.id}}" method="post">
-    <input type="hidden" name="_method" value="put"/>
-    <input type="hidden" name="id" th:value="${boardDto.id}"/>
+        <form th:action="@{'/board/post/edit/' + ${boardDto.id}}" method="post">
+            <input type="hidden" name="_method" value="put"/>
+            <input type="hidden" name="id" th:value="${boardDto.id}"/>
 
-    title : <input type="text" name="title" th:value="${boardDto.title}"> <br>
-    writer : <input type="text" name="writer" th:value="${boardDto.writer}"> <br>
-    <textarea name="content" th:text="${boardDto.content}"></textarea><br>
+            title : <input type="text" name="title" th:value="${boardDto.title}"> <br>
+            writer : <input type="text" name="writer" th:value="${boardDto.writer}"> <br>
+            <textarea name="content" th:text="${boardDto.content}"></textarea><br>
 
-    <input type="submit" value="update">
-</form>
+            <input type="submit" value="update">
+        </form>
 
-<!-- FOOTER -->
-<div th:insert="common/footer.html" id="footer"></div>
-</body>
+        <!-- FOOTER -->
+        <div th:insert="common/footer.html" id="footer"></div>
+    </body>
 </html>
