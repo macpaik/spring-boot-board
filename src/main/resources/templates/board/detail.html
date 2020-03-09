@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <!-- HEADER -->
+        <div th:insert="common/header.html" id="header"></div>
 
-<h2 th:text="${boardDto.title}"></h2>
-<p th:inline="text">created : [[${#temporals.format(boardDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>
-<p th:text="${boardDto.content}"></p>
+        <h2 th:text="${boardDto.title}"></h2>
+        <p th:inline="text">created : [[${#temporals.format(boardDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>
+        <p th:text="${boardDto.content}"></p>
 
-<div>
-    <a th:href="@{'/board/post/edit/' + ${boardDto.id}}">
-        <button>edit</button>
-    </a>
+        <div>
+            <a th:href="@{'/board/post/edit/' + ${boardDto.id}}">
+                <button>edit</button>
+            </a>
 
-    <form id="delete-form" th:action="@{'/board/post/' + ${boardDto.id}}" method="post">
-        <input type="hidden" name="_method" value="delete"/><!-- form will be mapped by "delete" -->
-        <button id="delete-btn">delete</button>
-    </form>
-</div>
+            <form id="delete-form" th:action="@{'/board/post/' + ${boardDto.id}}" method="post">
+                <input type="hidden" name="_method" value="delete"/><!-- form will be mapped by "delete" -->
+                <button id="delete-btn">delete</button>
+            </form>
+        </div>
 
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    var boardDto = /*[[${boardDto}]]*/ "";
-    /*]]>*/
-</script>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            var boardDto = /*[[${boardDto}]]*/ "";
+            /*]]>*/
+        </script>
 
-<!-- script -->
-<script th:inline="javascript" th:src="@{/js/board.js}"></script>
+        <!-- script -->
+        <script th:inline="javascript" th:src="@{/js/board.js}"></script>
 
-</body>
+
+        <!-- FOOTER -->
+        <div th:insert="common/footer.html" id="footer"></div>
+    </body>
 </html>
